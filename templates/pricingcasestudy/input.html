@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <fieldset class="group-border">
+                        <legend class="group-border">Annuity Calculator</legend>
+
+                        <div class="row">
+                            <form id="annuity-calculator" method="post">{% csrf_token %}
+
+                                <label>Loan Amount</label>
+                                <input class="form-control" name="loan_amount" type="text" placeholder="$200" required>
+                                <br/>
+                                <label>Term in Months</label>
+                                <input class="form-control" name="term" type="text" placeholder="12" required>
+                                <br/>
+                                <label>APR in %</label>
+                                <input class="form-control" name="apr" type="text" placeholder="25" required>
+                                <br/>
+                                <label>Lending Day of Month</label>
+                                <input class="form-control" name="lending_date" type="text" placeholder="25" required>
+                                <br/>
+                                <label>Repayment Day of Month</label>
+                                <input class="form-control" name="repayment_date" type="text" placeholder="25" required>
+                                <br/>
+                                <input type="submit" name="calculator" id="calculate-submit" tabindex="4" class="form-control btn btn-success" value="Calculate">
+                                <br/>
+                            </form>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker4').datetimepicker();
+    });
+</script>
+{% endblock %}

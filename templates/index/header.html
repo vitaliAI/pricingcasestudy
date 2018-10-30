@@ -1,0 +1,56 @@
+{% if request.user.is_authenticated %}
+<div class="container">
+    	<div class="row">
+
+            <div class="col-sm">
+                <h1 class="text-center">Build a set of classes / functions which can price a basic consumer loan given the following inputs:</h1>
+            </div>
+
+        </div>
+    <hr/>
+</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h2>Input Arguments</h2>
+                <ul>
+                    <li>Principal</li>
+                    <li>Terms in Months</li>
+                    <li>APR - Annual Percentage Rate</li>
+                    <li>Lending Date</li>
+                    <li>Repayment Day of Month</li>
+                </ul>
+            </div>
+            <div class="col-sm">
+                <h2>Output Result</h2>
+                <ul>
+                    <li>Annuity Amount</li>
+                    <li>Future Value</li>
+                </ul>
+            </div>
+            <div class="col-sm">
+                <h2>Equation</h2>
+                <div lang="latex">
+                FV =  P * \frac{R(1 + R)^N}{(1 + R)^N - 1}
+                </div>
+                <br/>
+                <div>
+                    <ul>
+                        <li>FV - Future Value (Annuity Payment)</li>
+                        <li>P - Principal</li>
+                        <li>R - is the period interest rate</li>
+                        <li>N - is the total number of payments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col align-self-center">
+                <p class="align-center"><a href="{% url 'input' %}" class="btn btn-success">Computer Future Value</a></p>
+            </div>
+        </div>
+    </div>
+{% else %}
+{% include 'index/login.html' %}
+{% endif %}
